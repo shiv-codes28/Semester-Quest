@@ -6,6 +6,7 @@ from utils import (
 )
 from profile import award_xp
 
+# view assignment 
 def view_assignments():
     header("ASSIGNMENTS (MINI-BOSSES)")
     if not data["assignments"]:
@@ -21,6 +22,7 @@ def view_assignments():
         else:
             print(f"   HP {hp_bar(left, total)} {left}/{total}   {deadline_text(a['deadline'])}")
 
+#add assignment
 def add_assignment():
     header("ADD NEW ASSIGNMENT")
     name = get_text("Assignment name: ")
@@ -33,6 +35,7 @@ def add_assignment():
     })
     print(GREEN + f"  A new mini-boss appeared: {name}" + RESET)
 
+##remove assignment
 def remove_assignment():
     header("REMOVE ASSIGNMENT")
     if not data["assignments"]:
@@ -47,6 +50,7 @@ def remove_assignment():
     removed = data["assignments"].pop(choice - 1)
     print(RED + f"  Removed mini-boss: {removed['name']}" + RESET)
 
+#to work on assignment
 def work_on_assignment():
     header("WORK ON ASSIGNMENT")
     active = [a for a in data["assignments"] if int(a["done_parts"]) < int(a["total_parts"])]
